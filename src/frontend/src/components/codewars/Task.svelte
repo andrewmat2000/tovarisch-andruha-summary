@@ -11,9 +11,18 @@
 
 <div>
   <h1>{title}</h1>
-  <span>{text}</span>
+  {#each text.split("\n") as line}
+    <span>{line}</span><br />
+  {/each}
+
   <br />
   <h2>{$_("codewars-example-label")}</h2>
 
   <Highlight language={bash} code={example} />
 </div>
+
+<style>
+  span {
+    white-space: pre-wrap;
+  }
+</style>
