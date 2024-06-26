@@ -45,11 +45,20 @@
 {/await}
 
 <style lang="scss">
+  main {
+    position: relative;
+
+    max-height: $theme-main-height;
+
+    overflow: hidden;
+  }
+
   hr {
     opacity: 0.5;
   }
+
   body {
-    position: fixed;
+    position: absolute;
 
     top: 0;
     bottom: 0;
@@ -59,7 +68,7 @@
     margin: 0;
 
     display: grid;
-    grid-template-columns: 255px 1fr;
+    grid-template-columns: $theme-left-panel 1fr;
 
     > div {
       background-color: $theme-black-color;
@@ -73,7 +82,7 @@
     > div:last-child {
       display: grid;
 
-      grid-template-rows: 45px 1fr 55px;
+      grid-template-rows: $theme-header 1fr $theme-footer;
 
       > header {
         border-bottom: 1px solid $theme-white-color;

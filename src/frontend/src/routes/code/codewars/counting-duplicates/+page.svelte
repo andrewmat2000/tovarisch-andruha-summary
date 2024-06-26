@@ -1,22 +1,21 @@
 <script lang="ts">
   import Answer from "@components/codewars/Answer.svelte";
-  import EqualCheck from "@components/codewars/EqualCheck.svelte";
+  import Test from "@components/codewars/Test.svelte";
   import Task from "@components/codewars/Task.svelte";
   import { duplicateCount } from "@lib/codewars/counting-duplicates/answer";
   import code from "@lib/codewars/counting-duplicates/answer.js?raw";
 
-  const tests: {
-    func: (text: string) => number;
-    args: string;
-    expected: number;
-  }[] = [
-    { args: "", func: duplicateCount, expected: 0 },
-    { args: "abcde", func: duplicateCount, expected: 0 },
-    { args: "aabbcde", func: duplicateCount, expected: 2 },
-    { args: "aabBcde", func: duplicateCount, expected: 2 },
-    { args: "Indivisibility", func: duplicateCount, expected: 1 },
-    { args: "Indivisibilities", func: duplicateCount, expected: 2 },
-  ];
+  const test = {
+    func: duplicateCount,
+    cases: [
+      { args: "", expected: 0 },
+      { args: "abcde", expected: 0 },
+      { args: "aabbcde", expected: 2 },
+      { args: "aabBcde", expected: 2 },
+      { args: "Indivisibility", expected: 1 },
+      { args: "Indivisibilities", expected: 2 },
+    ],
+  };
 
   const title = "Counting Duplicates";
   const text = `Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.`;
@@ -34,8 +33,5 @@
 </div>
 <div>
   <Answer {code}></Answer>
-
-  {#each tests as test}
-    <EqualCheck {test}></EqualCheck>
-  {/each}
+  <Test {test} />
 </div>
