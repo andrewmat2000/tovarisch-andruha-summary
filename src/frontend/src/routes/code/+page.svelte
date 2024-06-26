@@ -4,4 +4,4 @@ import { _ } from "svelte-i18n"
 
 </script>
 
-<Link label={$_("codewars")} link="/tasks/codewars"/>
+<Link label={$_("codewars")} link="/code/codewars"/>

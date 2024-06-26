@@ -1,7 +1,11 @@
 {
-    "main-tasks-link-label": "Задания",
-    "codewars": "Codewars",
-    "counting-duplicates-link-label": "Счет повторений",
-    "codewars-example-label": "Пример",
-    "codewars-answer-code-label": "Код решения"
+  "main-link-label": "Главная",
+  "code-link-label": "Примеры кода",
+  "codewars": "Codewars",
+  "counting-duplicates-link-label": "Счет повторений",
+  "codewars-example-label": "Пример",
+  "codewars-answer-code-label": "Код решения",
+  "bread-crumbs-main": "Главная",
+  "bread-crumbs-code": "Код",
+  "bread-crumbs-codewars": "Codewars"
 }

@@ -7,12 +7,14 @@
     link: string;
   }[] = [
     {
-      link: "/tasks/codewars/counting-duplicates",
+      link: "/code/codewars/counting-duplicates",
       label: $_("counting-duplicates-link-label"),
     },
   ];
 </script>
 
-{#each tasks as task}
-  <Link label={task.label} link={task.link} />
-{/each}
+<div>
+  {#each tasks as task}
+    <Link label={task.label} link={task.link} />
+  {/each}
+</div>
