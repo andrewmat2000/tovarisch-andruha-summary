@@ -11,6 +11,10 @@
   });
 </script>
 
+<svelte:head>
+  <title>Онлайн резюме</title>
+</svelte:head>
+
 {#await waitLocale() then}
   <body>
     <div>
@@ -50,7 +54,7 @@
 
     max-height: $theme-main-height;
 
-    overflow: hidden;
+    overflow: auto;
   }
 
   hr {
