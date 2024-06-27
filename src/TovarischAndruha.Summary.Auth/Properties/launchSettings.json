@@ -1,0 +1,13 @@
+﻿{
+  "profiles": {
+    "TovarischAndruha.Summary.Auth": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:5270",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
