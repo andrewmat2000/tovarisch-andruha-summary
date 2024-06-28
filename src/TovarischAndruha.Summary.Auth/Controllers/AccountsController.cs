@@ -15,41 +15,22 @@ namespace TovarischAndruha.Summary.Auth.Controllers;
 public class AccountsController(IUserManagerService userManagerService) : Controller {
   private readonly IUserManagerService _userManagerService = userManagerService;
 
-  [HttpGet]
-  public IActionResult Login() {
-    return View();
-  }
-
   [HttpPost]
-  public async Task<IActionResult> Login([FromForm] LoginRequest request, [FromQuery] string returnUrl) {
+  public async Task<IActionResult> Login([FromBody] LoginRequest request) {
     var result = await _userManagerService.LoginUserAsync(request);
 
     if (result.Succeeded) {
-      return Redirect(returnUrl);
+      return Ok();
     }
 
-    return View(request);
-  }
-
-
-  [HttpGet]
-  public IActionResult Register() {
-    return View();
+    return NotFound();
   }
 
   [HttpPost]
-  public async Task<IActionResult> Register(CreateUserRequest request) {
+  public async Task<CreateUserResponse> Register([FromBody] CreateUserRequest request) {
     var result = await _userManagerService.CreateUserAsync(request);
 
-    if (result.Succeeded) {
-      return RedirectToAction("Index", "Home");
-    }
-    return View(request);
-  }
-
-  [HttpGet]
-  public IActionResult AccessDenied() {
-    return View();
+    return result;
   }
 }
 

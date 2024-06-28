@@ -132,10 +132,6 @@ namespace TovarischAndruha.Summary.Auth.Services.Users {
         return false;
       }
 
-      if (request.Password.Length < 8) {
-        return false;
-      }
-
       return true;
     }
 

@@ -29,14 +29,12 @@ var app = builder.Build();
 app.UseAuthorization();
 app.UseAuthentication();
 
-app.UseMvc()
-   .UseRouting();
-app.MapControllers();
+
 
 app.Use(async (ctx, next) => {
-  if (ctx.Request.Cookies.ContainsKey("Authorization") && !ctx.Request.Headers.ContainsKey("Authorization")) {
-    ctx.Request.Headers.Authorization = $"Bearer {ctx.Request.Cookies["Authorization"]}";
-  }
+  // if (ctx.Request.Cookies.ContainsKey("Authorization") && !ctx.Request.Headers.ContainsKey("Authorization")) {
+  //   ctx.Request.Headers.Authorization = $"Bearer {ctx.Request.Cookies["Authorization"]}";
+  // }
 
   await next();
 });
@@ -58,6 +56,10 @@ app.Use(async (ctx, next) => {
 
   await next();
 });
+
+app.UseMvc()
+   .UseRouting();
+app.MapControllers();
 
 app.UseSpa(spa => {
   spa.UseProxyToSpaDevelopmentServer(Environment.GetEnvironmentVariable("SPA_DEV_SERVER_URL"));

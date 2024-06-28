@@ -25,12 +25,12 @@ builder.Services.AddDbContext<BaseDBContext>(op => op.UseSqlite(connectionString
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(options => {
   options.SignIn.RequireConfirmedEmail = false;
-  options.Password.RequireDigit = true;
-  options.Password.RequireLowercase = true;
-  options.Password.RequiredLength = 8;
+  // options.Password.RequireDigit = true;
+  options.Password.RequireLowercase = false;
+  options.Password.RequiredLength = 4;
   options.Password.RequireUppercase = false;
   options.Password.RequireNonAlphanumeric = false;
-  options.Lockout.MaxFailedAccessAttempts = 5;
+  // options.Lockout.MaxFailedAccessAttempts = 5;
   options.User.RequireUniqueEmail = true;
 }).AddRoles<IdentityRole>().AddEntityFrameworkStores<BaseDBContext>().AddDefaultTokenProviders();
 

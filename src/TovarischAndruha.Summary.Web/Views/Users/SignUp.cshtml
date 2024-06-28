@@ -1,0 +1,96 @@
+@model TovarischAndruha.Summary.Shared.Models.CreateUserRequest
+
+@{
+    Layout = "_Layout";
+}
+
+<!-- Pills content -->
+
+<form action="/users/sign_up" id="sign-up-form" method="post">
+    @* <div class="text-center mb-3">
+    <p>Sign up with:</p>
+    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+    <i class="fab fa-facebook-f"></i>
+    </button>
+
+    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+    <i class="fab fa-google"></i>
+    </button>
+
+    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+    <i class="fab fa-twitter"></i>
+    </button>
+
+    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+    <i class="fab fa-github"></i>
+    </button>
+    </div>
+
+    <p class="text-center">or:</p>*@
+
+    <!-- Name input -->
+    <div class="form-outline mb-4">
+        <input type="text" class="form-control" name="Name" />
+        <label class="form-label">Name</label>
+    </div>
+
+    <!-- Username input -->
+    <div class="form-outline mb-4">
+        <input type="text" class="form-control" name="UserName" />
+        <label class="form-label">Username</label>
+    </div>
+
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+        <input type="email" class="form-control" name="Email" />
+        <label class="form-label">Email</label>
+    </div>
+
+    <!-- PhoneNumber input -->
+    <div class="form-outline mb-4">
+        <input type="text" class="form-control" name="PhoneNumber" />
+        <label class="form-label">PhoneNumber</label>
+    </div>
+
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+        <input type="password" class="form-control" name="Password" />
+        <label class="form-label">Password</label>
+    </div>
+
+    <!-- Repeat Password input -->
+    <div class="form-outline mb-4">
+        <input type="password" class="form-control" name="RepeatPassword" />
+        <label class="form-label">Repeat password</label>
+    </div>
+
+    <!-- Checkbox -->
+    @* <div class="form-check d-flex justify-content-center mb-4">
+    <input class="form-check-input me-2" type="checkbox" value="" checked
+    aria-describedby="registerCheckHelpText" />
+    <label class="form-check-label">
+    I have read and agree to the terms
+    </label>
+    </div> *@
+
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-3">
+        Sign up
+    </button>
+</form>
+
+<!-- Pills content -->
+
+<style>
+    #sign-up-form {
+        margin-top: 100px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        width: 450px;
+        height: 300px;
+
+        text-align: center;
+    }
+</style>
