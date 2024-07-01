@@ -2,6 +2,7 @@
   "main-link-label": "Главная",
   "code-link-label": "Примеры кода",
   "codewars": "Codewars",
+  "test-tasks": "Тестовые задания",
   "counting-duplicates-link-label": "Счет повторений",
   "pin-validate-link-label": "Валидация пин с помощью Regex",
   "sum-of-odd-link-label": "Сумма n нечетных чисел",
@@ -9,5 +10,7 @@
   "codewars-answer-code-label": "Код решения",
   "bread-crumbs-main": "Главная",
   "bread-crumbs-code": "Код",
-  "bread-crumbs-codewars": "Codewars"
+  "bread-crumbs-codewars": "Codewars",
+  "bread-crumbs-test-tasks": "Тестовые",
+  "promit-test-task": "Тестовое задание от ПромИТ"
 }
