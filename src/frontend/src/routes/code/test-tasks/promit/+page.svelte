@@ -20,30 +20,34 @@
 </script>
 
 <div>
-  <SvelteMarkdown source={text} />
-</div>
+  <div>
+    <SvelteMarkdown source={text} />
+  </div>
 
-<div>
-  <a href="https://github.com/andrewmat2000/promit-test-task" target="_blank">
-    <img src="/img/github.png" alt="github-logo" />
-  </a>
-  Мое решение
+  <div>
+    <a href="https://github.com/andrewmat2000/promit-test-task" target="_blank">
+      <img src="/img/github.png" alt="github-logo" />
+    </a>
+    Мое решение
+  </div>
 </div>
 
 <style lang="scss">
   div {
-    padding: 15px;
-    color: white;
-  }
+    div {
+      padding: 15px;
+      color: white;
+    }
 
-  div:last-child {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    img {
-      width: 150px;
+    div:last-child {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-top: $theme-white-color solid 1px;
+      img {
+        width: 100px;
+      }
     }
   }
 </style>
