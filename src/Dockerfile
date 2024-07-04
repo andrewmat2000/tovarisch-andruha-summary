@@ -11,3 +11,5 @@ RUN npm run build
 FROM nginx:1.27.0 as run
 
 COPY --from=build /src/build /app
+
+RUN chown nginx /app

@@ -1,29 +1,13 @@
+<script>
+  import { githubDark } from "svelte-highlight/styles";
+</script>
+
 <div>
   <slot />
 </div>
 
 <style lang="scss">
   @import url("https://unpkg.com/svelte-highlight/styles/github.css");
-
-  :global(.hljs) {
-    background-color: transparent;
-
-    color: $theme-text-color;
-  }
-
-  :global(
-      .hljs-string,
-      .hljs-literal,
-      .hljs-variable,
-      .hljs-regexp,
-      .hljs-number
-    ) {
-    color: #2d7cd6;
-  }
-  
-  :global(.hljs-title.function_) {
-    color: #8951f1;
-  }
 
   div {
     display: grid;
