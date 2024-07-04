@@ -2,6 +2,7 @@
   import { waitLocale, register, init, _ } from "svelte-i18n";
   import Link from "@components/Link.svelte";
   import BreadCrumbs from "@components/BreadCrumbs.svelte";
+  import { githubDark } from "svelte-highlight/styles";
 
   register("ru", () => import("@lib/i18n/ru.json"));
 
@@ -13,6 +14,7 @@
 
 <svelte:head>
   <title>Онлайн резюме</title>
+  {@html githubDark}
 </svelte:head>
 
 {#await waitLocale() then}
@@ -32,16 +34,16 @@
       <footer>
         <span aria-disabled="true">Матвеев Андрей</span>
         <a href="https://vk.com/sovetckiysouz" target="_blank">
-          <img src="/img/vk.png" />
+          <img src="/img/vk.png" alt="vk-icon"/>
         </a>
         <a href="https://t.me/sovetckiysouz" target="_blank">
-          <img src="/img/telegram.png" />
+          <img src="/img/telegram.png" alt="telegram-icon"/>
         </a>
         <a
           href="https://github.com/andrewmat2000/tovarisch-andruha-summary/tree/rc-0.1.0"
           target="_blank"
         >
-          <img src="/img/github.png" />
+          <img src="/img/github.png" alt="github-icon"/>
         </a>
       </footer>
     </div>
