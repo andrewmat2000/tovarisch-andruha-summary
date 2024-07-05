@@ -13,7 +13,9 @@
   "bread-crumbs-codewars": "Codewars",
   "bread-crumbs-test-tasks": "Тестовые",
   "bread-crumbs-my-projects": "Проекты",
+  "bread-crumbs-divisors": "Делители",
   "promit-test-task": "Тестовое задание от ПромИТ",
   "my-projects": "Мои проекты",
-  "urfu-notification-system-link-label": "Система уведомлений должников (учебный)"
+  "urfu-notification-system-link-label": "Система уведомлений должников (учебный)",
+  "divisors-link-label": "Найти делители"
 }

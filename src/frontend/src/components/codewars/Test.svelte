@@ -1,38 +1,58 @@
 <script lang="ts" generics="R, A">
   export let test: { func: (args: A) => R; cases: { expected: R; args: A }[] };
 
-  function getFormatedInput(test: { expected: R; args: A }) {
-    switch (typeof test.args) {
+
+  function formatData(value: R | A) {
+    if (Array.isArray(value)) {
+      return `[${value}]`;
+    }
+
+    switch (typeof value) {
       case "string":
-        return `'${test.args}'`;
+        return `'${value}'`;
       case "number":
       case "bigint":
       case "boolean":
 
       case "undefined":
       case "function":
-        return `${test.args}`;
+        return `${value}`;
 
       case "object":
-        return JSON.stringify(test.args);
+        return JSON.stringify(value);
     }
 
-    return test.args;
+    return value;
+  }
+
+  const results: { actual: R; success: boolean; index: number }[] = [];
+
+  for (let i = 0; i < test.cases.length; i++) {
+    const testCase = test.cases[i];
+    const actual = test.func(testCase.args);
+
+    results.push({
+      actual: actual,
+      index: i,
+      success: Array.isArray(testCase.expected)
+        ? JSON.stringify(actual) == JSON.stringify(testCase.expected)
+        : actual == testCase.expected,
+    });
   }
 </script>
 
-{#each test.cases as testCase}
+{#each results as result}
   <div>
-    {test.func.name}({getFormatedInput(testCase)}) =
-    {#if test.func(testCase.args) == testCase.expected}
+    {test.func.name}({formatData(test.cases[result.index].args)}) =
+    {#if result.success}
       <span class={"success"}>
-        {test.func(testCase.args)}
+        {formatData(result.actual)}
       </span>
     {:else}
       <span class={"fail"}>
-        {test.func(testCase.args)}
+        {formatData(result.actual)}
       </span>
-      <span>({testCase.expected})</span>
+      <span>({test.cases[result.index].expected})</span>
     {/if}
   </div>
 {/each}
