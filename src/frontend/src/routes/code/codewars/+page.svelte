@@ -18,6 +18,10 @@
       link: "/code/codewars/sum-of-odd",
       label: $_("sum-of-odd-link-label"),
     },
+    {
+      link: "/code/codewars/divisors",
+      label: $_("divisors-link-label"),
+    },
   ];
 </script>
 
