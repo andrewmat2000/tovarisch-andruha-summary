@@ -115,6 +115,8 @@
 
       max-height: $theme-main-height;
 
+      padding: 0 15px;
+
       overflow: auto;
     }
 

@@ -32,8 +32,15 @@
 
     > :global(*) {
       max-height: $theme-main-height;
+      
       overflow: auto;
-      padding: 0 15px;
+    }
+
+    > :global(*:first-child) {
+      padding-right: 15px;
+    }
+    > :global(*:last-child) {
+      padding-left: 15px;
     }
   }
 

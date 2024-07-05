@@ -17,10 +17,6 @@
 </div>
 
 <style lang="scss">
-  #main-page {
-    padding: 0 15px 15px 15px;
-  }
-
   * {
     color: $theme-text-color;
   }
