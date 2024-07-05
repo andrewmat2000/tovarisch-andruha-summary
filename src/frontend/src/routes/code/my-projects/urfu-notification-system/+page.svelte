@@ -71,8 +71,6 @@ P.S. Проект командный, frontend - разрабатывал дру
   div {
     color: $theme-text-color;
 
-    padding: 15px;
-
     > div:last-child {
       padding-top: 25px;
       display: flex;

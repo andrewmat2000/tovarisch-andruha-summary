@@ -3,6 +3,7 @@
   import Link from "@components/Link.svelte";
   import BreadCrumbs from "@components/BreadCrumbs.svelte";
   import { isMobile } from "@lib";
+  import { uiStore } from "@lib/stores/ui-store";
 
   register("ru", () => import("@lib/i18n/ru.json"));
 
@@ -22,7 +23,7 @@
   {#if isMobile()}
     <body class="mobile">
       {#if showMenu}
-        <div id="menu">
+        <button id="menu" on:click={() => (showMenu = false)}>
           <Link
             label={$_("main-link-label")}
             link="/"
@@ -33,21 +34,29 @@
             link="/code"
             callback={() => (showMenu = false)}
           />
-        </div>
-      {:else}
-        <div>
-          <button id="menu-button" on:click={() => (showMenu = true)}>
-            <div>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </button>
-        </div>
-        <main>
-          <slot />
-        </main>
+        </button>
       {/if}
+      <header>
+        <button
+          id="back-button"
+          class={`arrow`}
+          style={`opacity: ${$uiStore.url.length > 1 ? "1" : "0"};`}
+          on:click={() => uiStore.goBack()}
+        >
+          <div></div>
+        </button>
+        <span></span>
+        <button id="menu-button" on:click={() => (showMenu = true)}>
+          <div>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+      </header>
+      <main>
+        <slot />
+      </main>
     </body>
   {:else}
     <body class="desktop">
@@ -171,21 +180,46 @@
     }
   }
   .mobile {
+    header {
+      $width: calc($mobile-header-height - 10px);
+      $height: calc($mobile-header-height - 10px);
+
+      position: fixed;
+
+      top: 0;
+      left: 10px;
+      right: 10px;
+      height: $mobile-header-height;
+
+      display: grid;
+      grid-template-columns: $width 1fr $width + 10px;
+
+      > * {
+        width: $width;
+        height: $height;
+      }
+    }
+
     #menu-button {
       background-color: transparent;
+
+      display: flex;
+
       border: none;
 
-      width: 25px;
-
+      margin: 5px;
       padding: 0;
 
       div {
         display: flex;
         flex-direction: column;
 
+        height: 100%;
+        width: 100%;
+
         span {
           margin: 3px;
-          height: 3px;
+          height: 5px;
 
           background-color: $theme-text-color;
         }
@@ -199,9 +233,68 @@
         }
       }
     }
+
+    main {
+      position: fixed;
+
+      top: $mobile-header-height;
+      left: 10px;
+      right: 10px;
+      bottom: 0;
+
+      overflow: auto;
+    }
+
+    @keyframes menuOpen {
+      from {
+        margin-right: 100vw;
+      }
+
+      to {
+        margin-right: 0;
+      }
+    }
+
     #menu {
-      > :global(*) {
-        border-bottom: 1px solid $theme-white-color;
+      z-index: 1;
+
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+
+      border: none;
+      position: absolute;
+
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+
+      padding-top: $mobile-header-height;
+
+      animation: menuOpen 0.6s;
+      background: $theme-black-color;
+    }
+
+    .arrow {
+      $multiple: 1.1;
+
+      border: none;
+      background-color: transparent;
+
+      height: calc($mobile-header-height * $multiple);
+      width: calc($mobile-header-height * $multiple);
+
+      div {
+        display: flex;
+
+        height: 100%;
+        width: 100%;
+
+        // background-color: transparent;
+        background: url("/img/arrow.png") no-repeat;
+        background-position: center;
+        background-size: contain;
       }
     }
   }

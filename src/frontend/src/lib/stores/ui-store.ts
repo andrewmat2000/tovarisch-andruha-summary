@@ -1,5 +1,5 @@
 import { goto } from "$app/navigation";
-import { writable } from "svelte/store";
+import { get, writable } from "svelte/store";
 
 export interface UiStore {
     url: string;
@@ -17,9 +17,19 @@ function createUiStore() {
         update(x => { x.url = url; return x; });
     }
 
+    function goBack() {
+        let { url } = get(P);
+
+        url = url.split("/").slice(0, -1).join("/");
+
+
+        changeLocation(url.length > 0 ? url : "/");
+    }
+
 
 
     return {
+        goBack,
         goto: changeLocation,
         subscribe
     }

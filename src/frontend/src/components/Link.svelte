@@ -1,5 +1,6 @@
 <script lang="ts">
   import { uiStore } from "@lib/stores/ui-store";
+  import { isMobile } from "@lib";
 
   export let link: string;
   export let label: string;
@@ -14,7 +15,12 @@
   }
 </script>
 
-<input type="button" on:click={go} value={label} class={type} />
+<input
+  type="button"
+  on:click={go}
+  value={label}
+  class={`${type} ${isMobile() ? "mobile" : "desktop"}`}
+/>
 
 <style lang="scss">
   input {
@@ -32,7 +38,10 @@
     height: 35px;
 
     width: 100%;
+
+    border-bottom: $theme-white-color solid 1px;
   }
+
   .button:hover {
     background-color: $theme-white-color;
   }
@@ -40,5 +49,9 @@
   .a:hover {
     cursor: pointer;
     opacity: 0.5;
+  }
+
+  .mobile[class*="button"] {
+    height: 55px;
   }
 </style>

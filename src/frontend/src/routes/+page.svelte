@@ -18,7 +18,7 @@
 
 <style lang="scss">
   #main-page {
-    padding: 15px;
+    padding: 0 15px 15px 15px;
   }
 
   * {

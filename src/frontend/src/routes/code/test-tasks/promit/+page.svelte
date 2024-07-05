@@ -34,7 +34,6 @@
 <style lang="scss">
   div {
     div {
-      padding: 15px;
       color: white;
     }
 
