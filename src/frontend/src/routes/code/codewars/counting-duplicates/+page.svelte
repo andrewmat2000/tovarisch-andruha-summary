@@ -4,6 +4,7 @@
   import Task from "@components/codewars/Task.svelte";
   import { duplicateCount } from "@lib/codewars/counting-duplicates/answer";
   import code from "@lib/codewars/counting-duplicates/answer.js?raw";
+  import { githubDark } from "svelte-highlight/styles";
 
   const test = {
     func: duplicateCount,
@@ -28,6 +29,9 @@
 "ABBA" -> 2 # 'A' and 'B' each occur twice`;
 </script>
 
+<svelte:head>
+  {@html githubDark}
+</svelte:head>
 <div>
   <Task {example} {text} {title} />
 </div>

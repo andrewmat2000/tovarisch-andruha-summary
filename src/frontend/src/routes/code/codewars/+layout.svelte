@@ -1,7 +1,3 @@
-<script>
-  import { githubDark } from "svelte-highlight/styles";
-</script>
-
 <div>
   <slot />
 </div>

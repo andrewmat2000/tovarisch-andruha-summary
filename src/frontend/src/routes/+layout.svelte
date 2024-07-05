@@ -2,8 +2,7 @@
   import { waitLocale, register, init, _ } from "svelte-i18n";
   import Link from "@components/Link.svelte";
   import BreadCrumbs from "@components/BreadCrumbs.svelte";
-  import { githubDark } from "svelte-highlight/styles";
-
+  
   register("ru", () => import("@lib/i18n/ru.json"));
 
   init({
@@ -14,7 +13,6 @@
 
 <svelte:head>
   <title>Онлайн резюме</title>
-  {@html githubDark}
 </svelte:head>
 
 {#await waitLocale() then}
