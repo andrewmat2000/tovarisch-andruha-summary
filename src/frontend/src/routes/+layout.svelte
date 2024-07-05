@@ -242,7 +242,7 @@
       right: 10px;
       bottom: 0;
 
-      padding-bottom: 50px;
+      padding-bottom: 25px;
 
       overflow: auto;
     }
