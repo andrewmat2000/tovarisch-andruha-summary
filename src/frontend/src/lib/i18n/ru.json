@@ -12,5 +12,8 @@
   "bread-crumbs-code": "Код",
   "bread-crumbs-codewars": "Codewars",
   "bread-crumbs-test-tasks": "Тестовые",
-  "promit-test-task": "Тестовое задание от ПромИТ"
+  "bread-crumbs-my-projects": "Проекты",
+  "promit-test-task": "Тестовое задание от ПромИТ",
+  "my-projects": "Мои проекты",
+  "urfu-notification-system-link-label": "Система уведомлений должников (учебный)"
 }

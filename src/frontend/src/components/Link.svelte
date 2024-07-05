@@ -20,6 +20,10 @@
     color: $theme-text-color;
   }
 
+  input:hover {
+    cursor: pointer;
+  }
+
   .button {
     border-radius: 3px;
     height: 35px;

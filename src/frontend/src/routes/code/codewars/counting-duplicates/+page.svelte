@@ -4,7 +4,6 @@
   import Task from "@components/codewars/Task.svelte";
   import { duplicateCount } from "@lib/codewars/counting-duplicates/answer";
   import code from "@lib/codewars/counting-duplicates/answer.js?raw";
-
   const test = {
     func: duplicateCount,
     cases: [

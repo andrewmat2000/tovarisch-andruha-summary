@@ -1,4 +1,5 @@
 <script>
+  import GithubLink from "@components/GithubLink.svelte";
   import SvelteMarkdown from "svelte-markdown";
 
   const text = `# Тестовое задание
@@ -25,9 +26,7 @@
   </div>
 
   <div>
-    <a href="https://github.com/andrewmat2000/promit-test-task" target="_blank">
-      <img src="/img/github.png" alt="github-logo" />
-    </a>
+    <GithubLink url="https://github.com/andrewmat2000/promit-test-task" />
     Мое решение
   </div>
 </div>
@@ -45,9 +44,6 @@
       align-items: center;
       justify-content: center;
       border-top: $theme-white-color solid 1px;
-      img {
-        width: 100px;
-      }
     }
   }
 </style>
