@@ -242,6 +242,8 @@
       right: 10px;
       bottom: 0;
 
+      padding-bottom: 70px;
+
       overflow: auto;
     }
 
