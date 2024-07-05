@@ -108,17 +108,7 @@
     margin: 0;
 
     display: grid;
-    grid-template-columns: $theme-left-panel 1fr;
-
-    main {
-      position: relative;
-
-      max-height: $theme-main-height;
-
-      padding: 0 15px;
-
-      overflow: auto;
-    }
+    grid-template-columns: $desktop-left-panel-width 1fr;
 
     hr {
       opacity: 0.5;
@@ -129,79 +119,80 @@
       border-right: 1px solid $theme-white-color;
     }
 
-    > div:last-child {
-      display: grid;
+    header {
+      position: fixed;
+      top: 0;
+      bottom: calc(100vh - $desktop-header-height);
+      left: $desktop-left-panel-width;
+      right: 0;
+      border-bottom: 1px solid $theme-white-color;
+      padding: 0 $desktop-default-padding;
+    }
 
-      grid-template-rows: $theme-header 1fr $theme-footer;
+    main {
+      position: fixed;
 
-      > header {
-        border-bottom: 1px solid $theme-white-color;
-        padding: 0 15px;
+      top: $desktop-header-height;
+      bottom: $desktop-footer-height;
+      left: calc($desktop-left-panel-width);
+      right: 0px;
+
+      padding: 0 15px;
+
+      overflow: auto;
+
+      padding-bottom: $desktop-default-padding;
+    }
+
+    footer {
+      position: fixed;
+
+      right: 0;
+      left: $desktop-left-panel-width;
+      top: calc(100vh - $desktop-footer-height);
+      bottom: 0;
+
+      color: $theme-text-color;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-top: 1px solid $theme-white-color;
+
+      span {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
       }
 
-      > footer {
-        color: $theme-text-color;
+      a {
+        background-color: transparent;
+        border: none;
 
-        display: flex;
-
-        align-items: center;
-        justify-content: center;
-
-        border-top: 1px solid $theme-white-color;
-
-        span {
-          -webkit-touch-callout: none;
-          -webkit-user-select: none;
-          -khtml-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
+        img {
+          height: 35px;
+          width: 35px;
         }
+      }
 
-        a {
-          background-color: transparent;
-          border: none;
+      a:hover {
+        cursor: pointer;
+        opacity: 0.5;
+      }
 
-          img {
-            height: 35px;
-            width: 35px;
-          }
-        }
-
-        a:hover {
-          cursor: pointer;
-          opacity: 0.5;
-        }
-
-        > * {
-          margin-bottom: auto;
-          margin-top: auto;
-          padding: 0 5px;
-        }
+      > * {
+        margin-bottom: auto;
+        margin-top: auto;
+        padding: 0 5px;
       }
     }
   }
   .mobile {
-    header {
-      $width: calc($mobile-header-height - 10px);
-      $height: calc($mobile-header-height - 10px);
-
-      position: fixed;
-
-      top: 0;
-      left: 10px;
-      right: 10px;
-      height: $mobile-header-height;
-
-      display: grid;
-      grid-template-columns: $width 1fr $width + 10px;
-
-      > * {
-        width: $width;
-        height: $height;
-      }
-    }
-
     #menu-button {
       background-color: transparent;
 
@@ -236,6 +227,26 @@
       }
     }
 
+    header {
+      $width: calc($mobile-header-height - 10px);
+      $height: calc($mobile-header-height - 10px);
+
+      position: fixed;
+
+      top: $mobile-default-padding;
+      bottom: calc(100vh - $mobile-header-height);
+      left: $mobile-default-padding;
+      right: $mobile-default-padding;
+
+      display: grid;
+      grid-template-columns: $width 1fr $width + 10px;
+
+      > * {
+        width: $width;
+        height: $height;
+      }
+    }
+
     main {
       position: fixed;
 
@@ -244,11 +255,13 @@
       right: 10px;
       bottom: 0;
 
-      padding-bottom: 25px;
+      padding-bottom: $mobile-default-padding;
 
       overflow: auto;
     }
 
+    footer {
+    }
     @keyframes menuOpen {
       from {
         margin-right: 100vw;

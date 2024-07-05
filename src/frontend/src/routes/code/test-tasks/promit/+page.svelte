@@ -43,6 +43,8 @@
       align-items: center;
       justify-content: center;
       border-top: $theme-white-color solid 1px;
+
+      padding-top: 25px;
     }
   }
 </style>

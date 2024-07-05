@@ -31,7 +31,7 @@
     }
 
     > :global(*) {
-      max-height: $theme-main-height;
+      max-height: $desktop-main-height;
       
       overflow: auto;
     }
