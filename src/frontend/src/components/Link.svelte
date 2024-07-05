@@ -3,11 +3,14 @@
 
   export let link: string;
   export let label: string;
+  export let callback: () => void = () => {};
 
   export let type: "button" | "a" = "button";
 
   function go() {
     uiStore.goto(link);
+
+    callback();
   }
 </script>
 
