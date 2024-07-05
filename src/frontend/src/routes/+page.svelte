@@ -6,9 +6,9 @@
   <div id="technology-stack">
     <span>Стэк технологий проекта</span>
     <div>
-      <img src="/img/nginx.png" />
-      <img src="/img/docker.png" />
-      <img src="/img/svelte.png" />
+      <img src="/img/nginx.png" alt="nginx-icon"/>
+      <img src="/img/docker.png" alt="docker-icon"/>
+      <img src="/img/svelte.png" alt="svelte-icon"/>
     </div>
   </div>
 
