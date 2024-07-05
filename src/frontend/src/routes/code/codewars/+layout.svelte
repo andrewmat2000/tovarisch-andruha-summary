@@ -1,10 +1,20 @@
+<script lang="ts">
+  import { githubDark } from "svelte-highlight/styles";
+</script>
+
+<svelte:head>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/svelte-highlight/styles/github.css"
+  />
+  {@html githubDark}
+</svelte:head>
+
 <div>
   <slot />
 </div>
 
 <style lang="scss">
-  @import url("https://unpkg.com/svelte-highlight/styles/github.css");
-
   div {
     display: grid;
     grid-template-columns: 1fr 1fr;
