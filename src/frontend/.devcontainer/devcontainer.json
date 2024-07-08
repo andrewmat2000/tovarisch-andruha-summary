@@ -1,5 +1,8 @@
 {
     "image": "node:20.12.2-alpine3.19",
+    "runArgs": [
+        "-p=5173:5173"
+    ],
     "customizations": {
         "vscode": {
             "extensions": [
