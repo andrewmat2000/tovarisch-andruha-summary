@@ -234,7 +234,7 @@
       position: fixed;
 
       top: $mobile-default-padding;
-      bottom: calc(100vh - $mobile-header-height);
+      bottom: calc(100vh - $mobile-header-height * 2);
       left: $mobile-default-padding;
       right: $mobile-default-padding;
 
@@ -250,7 +250,7 @@
     main {
       position: fixed;
 
-      top: $mobile-header-height;
+      top: calc($mobile-header-height + $mobile-default-padding * 2);
       left: 10px;
       right: 10px;
       bottom: 0;
@@ -262,6 +262,7 @@
 
     footer {
     }
+
     @keyframes menuOpen {
       from {
         margin-right: 100vw;
