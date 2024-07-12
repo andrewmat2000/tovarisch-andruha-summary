@@ -1,0 +1,19 @@
+{
+  "dockerFile": "Dockerfile",
+  "runArgs": [
+    "-e",
+    "PG_CONNECTION_STRING=Host=host.docker.internal;Port=5432;Username=pguser;Password=pgpass;Database=data_concentrator;SSL Mode=Prefer;Trust Server Certificate=True;Pooling=True;Command Timeout=0",
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "patcx.vscode-nuget-gallery",
+        "ms-dotnettools.csharp",
+        "EditorConfig.EditorConfig"
+      ],
+      "settings": {
+        "dotnet.defaultSolution": "TovarischAndruha.Summary.sln"
+      }
+    }
+  }
+}
