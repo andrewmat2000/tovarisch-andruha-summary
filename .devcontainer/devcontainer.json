@@ -3,13 +3,19 @@
   "runArgs": [
     "-e",
     "PG_CONNECTION_STRING=Host=host.docker.internal;Port=5432;Username=pguser;Password=pgpass;Database=data_concentrator;SSL Mode=Prefer;Trust Server Certificate=True;Pooling=True;Command Timeout=0",
+    "-e",
+    "SPA_PROXY_URL=http://host.docker.internal:5173",
+    "-p=8080:8080",
+    "-e",
+    "ORIGIN_URL=http://localhost:8080"
   ],
   "customizations": {
     "vscode": {
       "extensions": [
         "patcx.vscode-nuget-gallery",
-        "ms-dotnettools.csharp",
-        "EditorConfig.EditorConfig"
+        "EditorConfig.EditorConfig",
+        "ms-azuretools.vscode-docker",
+        "ms-dotnettools.csdevkit"
       ],
       "settings": {
         "dotnet.defaultSolution": "TovarischAndruha.Summary.sln"

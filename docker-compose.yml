@@ -1,0 +1,7 @@
+name: "tovarisch-andruha-summary"
+
+services:
+  web-app:
+    build: src/WebApp
+    ports:
+      - ${WEB_EXTERNAL_PORT}:8080
