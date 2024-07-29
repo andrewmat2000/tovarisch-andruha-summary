@@ -1,27 +1,22 @@
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
+EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
+COPY ["WebAppComponents/WebAppComponents.csproj", "WebAppComponents/"]
+COPY ["WebApp/WebApp.csproj", "WebApp/"]
 
-COPY [^wwwroot]* .
-
-RUN dotnet restore
-RUN dotnet build -c Release -o /app/build
+RUN dotnet restore "WebAppComponents/WebAppComponents.csproj"
+COPY . .
+WORKDIR "/src/WebApp"
+RUN dotnet build "WebApp.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish -c Release -o /app/publish /p:UseAppHost=false
-
-FROM node:20.12.2-alpine3.19 AS node_build
-WORKDIR /node_build
-COPY wwwroot .
-RUN npm i
-RUN npm run build
-
+RUN dotnet publish "WebApp.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-COPY --from=node_build /node_build/build wwwroot/build
 
-ENTRYPOINT ["dotnet", "WebApp.dll"]
+ENTRYPOINT ["dotnet", "WebApp.dll", "--urls", "http://0.0.0.0"]

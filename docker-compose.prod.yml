@@ -1,0 +1,7 @@
+services:
+  webapp:
+    build:
+      context: src
+      dockerfile: WebApp/Dockerfile.prod
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production

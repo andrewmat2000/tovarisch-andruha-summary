@@ -1,1 +1,0 @@
-export declare const divisors: (integer: number) => number[] | string;

@@ -8,6 +8,7 @@ export default {
     alias: {
       "@components": "./src/components",
       "@lib": "./src/lib",
+      "@stores": "./src/lib/stores",
     },
     adapter: adapter({
       // default options are shown. On some platforms

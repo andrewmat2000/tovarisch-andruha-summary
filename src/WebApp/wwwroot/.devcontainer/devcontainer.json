@@ -1,15 +1,32 @@
 {
-    "image": "node:20.12.2-alpine3.19",
-    "runArgs": [
-        "-p=5173:5173"
-    ],
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "svelte.svelte-vscode",
-                "ms-vscode.vs-keybindings",
-                "esbenp.prettier-vscode"
-            ]
+  "name": "Existing Dockerfile",
+  "image": "node:20.16.0",
+  "runArgs": ["-p=24678:24678", "-p=3000:3000"],
+  // "postAttachCommand": "rm -r $(find . -name node_modules -o -name .nuxt | grep -v client-app) package-lock.json || npm i",
+  "remoteEnv": {
+    "PROXY_URL": "http://host.docker.internal"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Vue.volar",
+        "dbaeumer.vscode-eslint",
+        "ms-vscode.vs-keybindings",
+        "esbenp.prettier-vscode@8.2.0",
+        "firefox-devtools.vscode-firefox-debug"
+      ],
+      "settings": {
+        "prettier.prettierPath": "./node_modules/prettier",
+        "[vue]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[jsonc]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
         }
+      }
     }
+  }
 }
