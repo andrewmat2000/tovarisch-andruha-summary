@@ -25,7 +25,7 @@ if (builder.Environment.IsDevelopment()) {
 }
 
 
-app.UseSvelteSpaRouting(["/api"]);
+app.UseSvelteSpaRouting(["/api", "/swagger"]);
 app.UseSpaStaticFiles();
 app.UseSpa(configuration => configuration.Options.SourcePath = "wwwroot/build");
 

@@ -36,11 +36,9 @@ public class AdminController(ILogger<AdminController> logger) : ControllerBase {
   [HttpPost("edit_user")]
   public async Task<EditUserResponse> EditUser([FromForm] EditUserRequest request) {
     using var httpClient = new HttpClient();
-    var content = new MultipartFormDataContent();
-
-    _logger.LogInformation("Request: {}", request);
-
-    content.Add(new StringContent(request.Login), nameof(request.Login));
+    var content = new MultipartFormDataContent {
+      { new StringContent(request.Login), nameof(request.Login) }
+    };
 
     if (request.DisplayName != null) {
       content.Add(new StringContent(request.DisplayName), nameof(request.DisplayName));

@@ -4,6 +4,10 @@ import { defineConfig, loadEnv } from "vite";
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
 
+  if (mode == "development") {
+    console.log(env["BACKEND_PROXY_URL"])
+  }
+
   return {
     plugins: [sveltekit()],
     css: {
@@ -17,7 +21,7 @@ export default defineConfig(({ mode }) => {
     },
     server: {
       proxy: {
-        "/api": "",
+        "/api": env["BACKEND_PROXY_URL"],
       },
     },
   };

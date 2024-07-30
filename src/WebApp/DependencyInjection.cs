@@ -51,7 +51,7 @@ public static class DependencyInjection {
         var response = await httpClient.RequestRefreshTokenAsync(new RefreshTokenRequest {
           Address = string.Format("{0}/connect/token", AppSettings.IdentityServerUrl),
           GrantType = "refresh_token",
-          ClientId = "js",
+          ClientId = "webapp",
           RefreshToken = refreshToken
         });
 
@@ -85,9 +85,11 @@ public static class DependencyInjection {
 
       if (context.Request.Headers.TryGetValue("Accept", out var accept) &&
           !context.Request.Path.StartsWithSegments("/users/sign_in") &&
+          !context.Request.Path.StartsWithSegments("/api/users/sign_in") &&
+          !context.Request.Path.StartsWithSegments("/swagger") &&
           accept.ToString().StartsWith("text/html")) {
 
-        context.Response.Redirect("/users/sign_in");
+        context.Response.Redirect(string.Format("/users/sign_in?returnUrl={0}", context.Request.Path));
 
         return;
       }

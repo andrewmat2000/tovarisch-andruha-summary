@@ -1,0 +1,12 @@
+{
+    "left-panel-link-main": "Главная",
+    "left-panel-link-admin": "Панель администратора",
+
+    "admin-panel-link-users": "Пользователи",
+    "admin-panel-link-cms": "Управление контентом",
+
+    "bread-crumbs-main": "Главная",
+    "bread-crumbs-admin": "Панель администратора",
+    "bread-crumbs-users": "Пользователи",
+    "bread-crumbs-cms": "Контент"
+}
