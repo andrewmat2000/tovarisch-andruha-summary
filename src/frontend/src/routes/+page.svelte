@@ -6,10 +6,22 @@
   <div id="technology-stack">
     <span>Стэк технологий проекта</span>
     <div>
-      <img src="/img/nginx.png" alt="nginx-icon"/>
-      <img src="/img/docker.png" alt="docker-icon"/>
-      <img src="/img/svelte.png" alt="svelte-icon"/>
+      <img src="/img/nginx.png" alt="nginx-icon" />
+      <img src="/img/docker.png" alt="docker-icon" />
+      <img src="/img/svelte.png" alt="svelte-icon" />
     </div>
+  </div>
+  <hr />
+  <div id="project-source-code">
+    <span>Код проект: </span>
+    <br />
+    <br />
+    <a
+      href="https://github.com/andrewmat2000/tovarisch-andruha-summary"
+      target="_blank"
+    >
+      <img src="/img/github.png" alt="svelte-icon" />
+    </a>
   </div>
 
   <hr />
@@ -37,6 +49,14 @@
       img {
         height: 100px;
       }
+    }
+  }
+
+  #project-source-code {
+    text-align: center;
+
+    img {
+      width: 150px;
     }
   }
 </style>
