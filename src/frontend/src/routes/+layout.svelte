@@ -81,7 +81,7 @@
             <img src="/img/telegram.png" alt="telegram-icon" />
           </a>
           <a
-            href="https://github.com/andrewmat2000/tovarisch-andruha-summary/tree/rc-0.1.0"
+            href="https://github.com/andrewmat2000"
             target="_blank"
           >
             <img src="/img/github.png" alt="github-icon" />
