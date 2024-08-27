@@ -3,16 +3,16 @@
   import { onMount } from "svelte";
 
   async function loadProfile() {
-    const response = await fetch("/api/users/get_profile");
-    const json = (await response.json()) as User;
+    // const response = await fetch("/api/users/get_profile");
+    // const json = (await response.json()) as User;
 
-    uiStore.update(x => {
-      x.user = json;
+    // uiStore.update(x => {
+    //   x.user = json;
 
-      x.isAuthorized = x.user.login != "guest";
+    //   x.isAuthorized = x.user.login != "guest";
 
-      return x;
-    });
+    //   return x;
+    // });
   }
 
   onMount(async () => {
